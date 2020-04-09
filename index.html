@@ -9645,8 +9645,8 @@ Error message and password prompt
 <div created="20200409220607271" creator="Saint Shroomie" modified="20200409220608342" modifier="Saint Shroomie" title="$:/state/Excise/--2037856250/type">
 <pre>link</pre>
 </div>
-<div created="20200409211210121" creator="Saint Shroomie" modified="20200409231459450" modifier="Saint Shroomie" title="$:/state/showeditpreview">
-<pre>no</pre>
+<div created="20200409211210121" creator="Saint Shroomie" modified="20200409231649542" modifier="Saint Shroomie" title="$:/state/showeditpreview">
+<pre>yes</pre>
 </div>
 <div created="20200409220153989" creator="Saint Shroomie" modified="20200409220516848" modifier="Saint Shroomie" title="$:/state/sidebar">
 <pre>no</pre>
@@ -9857,13 +9857,36 @@ Error message and password prompt
 <div created="20200409215832352" creator="Saint Shroomie" modified="20200409215837096" modifier="Saint Shroomie" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20200409220632965" creator="Saint Shroomie" modified="20200409231505107" modifier="Saint Shroomie" tags="" title="Components">
-<pre>Built In Ember Components
+<div created="20200409220632965" creator="Saint Shroomie" modified="20200409232945147" modifier="Saint Shroomie" tags="" title="Components">
+<pre>!! Built In Ember Components
+;~LinkTo
+:Creates an in app link which moves between routes, but does not refresh the page. 
+```
+&lt;LinkTo @route=&quot;&lt;route name&gt;&quot; class=&quot;&lt;css class name&gt;&quot;&gt;
+```
 
-* ~LinkTo
-**Creates an in app link which moves between routes, but does not refresh the page.
-```&lt;LinkTo @route=&quot;&lt;route name&gt;&quot; class=&quot;&lt;css class name&gt;&quot;&gt;```
+!! Creating Components Of Our Own
+;Namespace Components
+:Namespaced components can be referenced like so in .hbs
+```
+&lt;NameSpace::ComponentName&gt;
+```
 
+;this.args
+:this.args is a property of each glimmer component. It makes it easy to reference any values that were passed into the component when invoked. All values in this.args are automatically tracked.
+
+;Getters
+:A getter creates an easy reference to a value that is produced by the execution of a method. A getter can be created by adding something like the following to the component class.
+
+```
+export default class MapComponent extends Component {
+  get src() {
+    let {domain} = this. args;
+    return `http://${domain}`;
+  }
+}
+```
+:Referencing src from the template is now as simple as {{this.src}}. Getters cannot be @tracked, however all referenced values in a getter automatically become tracked, and when they change any template that uses the getter will re-render to reflect the new value.
 
 </pre>
 </div>
