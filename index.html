@@ -9675,7 +9675,7 @@ Error message and password prompt
 <div created="20200409204922168" creator="S" modified="20200409204926424" modifier="Saint Shroomi" title="$:/status/UserName">
 <pre>Saint Shroomie</pre>
 </div>
-<div created="20200409215720641" creator="Saint Shroomie" list="Ember [[Ember Tid Bits]] [[Ember CLI]] Modifiers Helpers Routes Home [[Tiddly Wiki]] Syntax" modified="20200410000942468" modifier="Saint Shroomie" title="$:/StoryList">
+<div created="20200409215720641" creator="Saint Shroomie" list="Ember [[Ember Tid Bits]] Qunit [[Ember CLI]] Modifiers Helpers Routes Home [[Tiddly Wiki]] Syntax" modified="20200410001551761" modifier="Saint Shroomie" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9978,8 +9978,33 @@ If the page is not working, you can check the status of github pages [[here|http
 &gt;
 ```</pre>
 </div>
-<div created="20200409225727568" creator="Saint Shroomie" modified="20200409225727568" modifier="Saint Shroomie" tags="" title="Qunit">
-<pre>Qunit</pre>
+<div created="20200409225727568" creator="Saint Shroomie" modified="20200410002241303" modifier="Saint Shroomie" tags="" title="Qunit">
+<pre>!!Starting The Test Server
+
+;Reaching the Test Server
+: The test server can be reached at http://localhost:7357
+;`ember test`
+: Will run the tests
+;`ember test--server`
+:Starts the continuous test server
+
+!!Testing
+!!!Assertions
+;Existence of a DOM node
+:`assert.dom('&lt;css selector&gt;').exists()`
+;Text content of a DOM node
+:`assert.dom('&lt;css selector&gt;').hasText(&quot;&lt;some text&gt;&quot;)`
+;Equality
+:`assert.equal(&lt;val1&gt;,&lt;val2&gt;)`
+;Attribute value
+:`assert.dom('&lt;css selector&gt;').hasAttribute('&lt;attributeName&gt;','&lt;attributeValue/orRegularExpression&gt;'`
+;CSS Class
+:`assert.dom('&lt;css selector&gt;').hasClass('&lt;className&gt;')`
+;CSS Class Missing
+:`assert.dom('&lt;css selector&gt;').doesNotHaveClass('&lt;className&gt;')`
+;Truthy
+:`assert.ok(isTruthyOrNot, message)`
+</pre>
 </div>
 <div created="20200409220640021" creator="Saint Shroomie" modified="20200409233711083" modifier="Saint Shroomie" tags="EmberRoutes" title="Routes">
 <pre>!! Hooks
