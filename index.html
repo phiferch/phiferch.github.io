@@ -9978,7 +9978,7 @@ If the page is not working, you can check the status of github pages [[here|http
 &gt;
 ```</pre>
 </div>
-<div created="20200409225727568" creator="Saint Shroomie" modified="20200410002241303" modifier="Saint Shroomie" tags="" title="Qunit">
+<div created="20200409225727568" creator="Saint Shroomie" modified="20200410002811125" modifier="Saint Shroomie" tags="" title="Qunit">
 <pre>!!Starting The Test Server
 
 ;Reaching the Test Server
@@ -10004,6 +10004,24 @@ If the page is not working, you can check the status of github pages [[here|http
 :`assert.dom('&lt;css selector&gt;').doesNotHaveClass('&lt;className&gt;')`
 ;Truthy
 :`assert.ok(isTruthyOrNot, message)`
+
+!!Useful Stuff
+;`this.setProperties`
+:Can be used during a test to create properties in the test context scope (this is not the component's scope), whcih are then able to be referenced when writing hbs. Those properties are also able to be `@tracked` by ember.
+
+```
+test('it renders', async function(assert) {
+    this.setProperties({
+        lat: 37.7749
+    });
+
+    await render(hbs `&lt;Map @lat={{this.lat}}/&gt;`;
+    assert.ok(img.src.includes('37.7749'), 'the src should have the passed lat value.');
+    this.setProperties({lat: 47.6062});
+    //imagine that the img has a src attribute that uses the lat property passed in.
+    let img = find('.map img');
+    assert.ok(img.src.includes('47.6062'), 'the src should have the new lat value.');
+```
 </pre>
 </div>
 <div created="20200409220640021" creator="Saint Shroomie" modified="20200409233711083" modifier="Saint Shroomie" tags="EmberRoutes" title="Routes">
